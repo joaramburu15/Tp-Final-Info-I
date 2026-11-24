@@ -118,10 +118,9 @@ int main(int argc, char *argv[])
 	while(1){
     res = curl_easy_perform(curl);
     if (res != 0)
-      printf("Error Código: %d\n", res);
+      printf("Error CÃ³digo: %d\n", res);
 	
 	if(chunk.response != NULL){
-    printf("%s\n", chunk.response);
 	
 	char *upd = strstr(chunk.response, "update_id");
 	char *fecha = strstr(chunk.response, "\"date\":");
@@ -133,7 +132,6 @@ int main(int argc, char *argv[])
 
 	if (upd != NULL) {
 		int numero = atoi(upd + 11);
-		printf("%d\n", numero);
 		int offset = numero + 1;
 		char texto[20];
 		sprintf(texto, "%d", offset);
@@ -150,7 +148,6 @@ int main(int argc, char *argv[])
 		if(chat_id != NULL){
 			chat_id += 12;
 			long numero_chat = atol(chat_id);
-			printf("%ld\n", numero_chat);
 			char nchat[20];
 			sprintf(nchat,"%ld",numero_chat);
 			char url_mensaje[500];
